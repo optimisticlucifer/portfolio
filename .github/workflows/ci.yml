@@ -1,24 +1,23 @@
 name: portfolio
 
 on:
-    push:
+  push:
     branches:
-        - master
+      - master
 
 jobs:
-    deploy:
-        runs-on: ubuntu-latest
-        steps:  
-        - name:   Checkout code
-          uses: actions/checkout@v2
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-        - name: Setup SSH
-          run: |
-            echo "${{ secrets.SSH_KEYS}}" > id_rsa
-            chmod 600 id_rsa
-        - name: Connect SSH
-          run: |
-            ssh -tt -o StrictHostKeyChecking=no -i id_rsa ec2-user@ec2-3-25-174-188.ap-southeast-2.compute.amazonaws.com <<'ENDSSH'
-            ls
-            echo "done connect"
+      - name: Setup SSH
+        run: |
+          echo "${{ secrets.SSH_KEYS }}" > id_rsa
+          chmod 600 id_rsa
 
+      - name: Connect SSH
+        run: |
+          ssh -tt -o StrictHostKeyChecking=no -i id_rsa ec2-user@ec2-3-25-174-188.ap-southeast-2.compute.amazonaws.com 'ls'
+          echo "done connect"
