@@ -22,8 +22,15 @@ jobs:
           ssh -tt -o StrictHostKeyChecking=no -i id_rsa ec2-user@ec2-13-55-149-226.ap-southeast-2.compute.amazonaws.com '
             ls &&
             echo "done connecting" &&
+            cd /home/ec2-user/currentPortfolio/ &&
+            git clone https://github.com/optimisticlucifer/portfolio.git &&
             cd /home/ec2-user/currentPortfolio/portfolio/ &&
             ls &&
+            git stash &&
+            git fetch &&
+            git checkout master &&
+            git pull origin master &&
             echo "done travel" &&
+            npm  install --silent &&
             npm run dev -- --port=3000 --host &&
             echo "done connect"'
