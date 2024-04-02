@@ -19,7 +19,7 @@ jobs:
 
       - name: Connect SSH
         run: |
-          ssh -tt -o StrictHostKeyChecking=no -i id_rsa ec2-user@ec2-3-27-217-251.ap-southeast-2.compute.amazonaws.com 
+          ssh -tt -o StrictHostKeyChecking=no -i id_rsa ec2-user@ec2-3-27-217-251.ap-southeast-2.compute.amazonaws.com ls
           cd /home/ec2-user/currentPortfolio/portfolio/
           ls
           npm run dev -- --port=3000 --host
