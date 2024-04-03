@@ -33,6 +33,6 @@ jobs:
             sudo git checkout master &&
             sudo git pull origin master &&
             echo "done travel" &&
-            sudo npm  install --silent &&
-            npm run dev -- --port=3000 --host &&
+            sudo npm install &&
+            sudo npm run dev -- --port=3000 --host &&
             echo "done connect"'
