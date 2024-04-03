@@ -25,14 +25,14 @@ jobs:
             sudo rm -rf /home/ec2-user/currentPortfolio/portfolio/ 
             echo "old removed" &&
             cd /home/ec2-user/currentPortfolio/ &&
-            git clone https://github.com/optimisticlucifer/portfolio.git &&
+            sudo git clone https://github.com/optimisticlucifer/portfolio.git &&
             cd /home/ec2-user/currentPortfolio/portfolio/ &&
             ls &&
-            git stash &&
-            git fetch &&
-            git checkout master &&
-            git pull origin master &&
+            sudo git stash &&
+            sudo git fetch &&
+            sudo git checkout master &&
+            sudo git pull origin master &&
             echo "done travel" &&
-            npm  install --silent &&
+            sudo npm  install --silent &&
             npm run dev -- --port=3000 --host &&
             echo "done connect"'
